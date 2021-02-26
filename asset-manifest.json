@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/webrtc-firebase-611463022/static/css/main.8c8b27cf.chunk.css",
+    "main.js": "/webrtc-firebase-611463022/static/js/main.173d921a.chunk.js",
+    "main.js.map": "/webrtc-firebase-611463022/static/js/main.173d921a.chunk.js.map",
+    "runtime-main.js": "/webrtc-firebase-611463022/static/js/runtime-main.cef79692.js",
+    "runtime-main.js.map": "/webrtc-firebase-611463022/static/js/runtime-main.cef79692.js.map",
+    "static/js/2.a25d5800.chunk.js": "/webrtc-firebase-611463022/static/js/2.a25d5800.chunk.js",
+    "static/js/2.a25d5800.chunk.js.map": "/webrtc-firebase-611463022/static/js/2.a25d5800.chunk.js.map",
+    "static/js/3.1c37bebe.chunk.js": "/webrtc-firebase-611463022/static/js/3.1c37bebe.chunk.js",
+    "static/js/3.1c37bebe.chunk.js.map": "/webrtc-firebase-611463022/static/js/3.1c37bebe.chunk.js.map",
+    "index.html": "/webrtc-firebase-611463022/index.html",
+    "static/css/main.8c8b27cf.chunk.css.map": "/webrtc-firebase-611463022/static/css/main.8c8b27cf.chunk.css.map",
+    "static/js/2.a25d5800.chunk.js.LICENSE.txt": "/webrtc-firebase-611463022/static/js/2.a25d5800.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/webrtc-firebase-611463022/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cef79692.js",
+    "static/js/2.a25d5800.chunk.js",
+    "static/css/main.8c8b27cf.chunk.css",
+    "static/js/main.173d921a.chunk.js"
+  ]
+}
