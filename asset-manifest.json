@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/webrtc-firebase-611463022/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/webrtc-firebase-611463022/static/js/main.e7b54cc7.chunk.js",
-    "main.js.map": "/webrtc-firebase-611463022/static/js/main.e7b54cc7.chunk.js.map",
+    "main.js": "/webrtc-firebase-611463022/static/js/main.35d42a1d.chunk.js",
+    "main.js.map": "/webrtc-firebase-611463022/static/js/main.35d42a1d.chunk.js.map",
     "runtime-main.js": "/webrtc-firebase-611463022/static/js/runtime-main.f10dacf8.js",
     "runtime-main.js.map": "/webrtc-firebase-611463022/static/js/runtime-main.f10dacf8.js.map",
     "static/css/2.7afb6aac.chunk.css": "/webrtc-firebase-611463022/static/css/2.7afb6aac.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.7afb6aac.chunk.css",
     "static/js/2.09e017aa.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.e7b54cc7.chunk.js"
+    "static/js/main.35d42a1d.chunk.js"
   ]
 }
