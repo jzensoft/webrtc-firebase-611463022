@@ -189,7 +189,7 @@ const Setup = ({ logout }) => {
         <Col style={{ padding: "0" }}>
           <video
             playsInline
-            muted
+            muted={audio ? true : false}
             ref={friendVideo}
             autoPlay
             style={{
