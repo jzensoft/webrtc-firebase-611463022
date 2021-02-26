@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import SignIn from "./component/SignIn";
+import SignUp from "./component/SignUp";
+import Setup from "./component/Setup";
 
-function App() {
+const App = () => {
+  const [signIn, setSignIn] = useState(false);
+  const [id, setID] = useState("");
+
+  const toggleSign = () => {
+    setSignIn(signIn ? false : true);
+  };
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.reload(false);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {localStorage.getItem("id") ? (
+        <Setup logout={logout} />
+      ) : signIn ? (
+        <SignUp toggleSign={toggleSign} setID={setID} />
+      ) : (
+        <SignIn toggleSign={toggleSign} setID={setID} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
