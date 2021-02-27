@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/webrtc-firebase-611463022/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/webrtc-firebase-611463022/static/js/main.35d42a1d.chunk.js",
-    "main.js.map": "/webrtc-firebase-611463022/static/js/main.35d42a1d.chunk.js.map",
-    "runtime-main.js": "/webrtc-firebase-611463022/static/js/runtime-main.f10dacf8.js",
-    "runtime-main.js.map": "/webrtc-firebase-611463022/static/js/runtime-main.f10dacf8.js.map",
+    "main.css": "/webrtc-firebase-611463022/static/css/main.5b5663b6.chunk.css",
+    "main.js": "/webrtc-firebase-611463022/static/js/main.c56c2617.chunk.js",
+    "main.js.map": "/webrtc-firebase-611463022/static/js/main.c56c2617.chunk.js.map",
+    "runtime-main.js": "/webrtc-firebase-611463022/static/js/runtime-main.69ce5c9a.js",
+    "runtime-main.js.map": "/webrtc-firebase-611463022/static/js/runtime-main.69ce5c9a.js.map",
     "static/css/2.7afb6aac.chunk.css": "/webrtc-firebase-611463022/static/css/2.7afb6aac.chunk.css",
-    "static/js/2.09e017aa.chunk.js": "/webrtc-firebase-611463022/static/js/2.09e017aa.chunk.js",
-    "static/js/2.09e017aa.chunk.js.map": "/webrtc-firebase-611463022/static/js/2.09e017aa.chunk.js.map",
-    "static/js/3.120d3005.chunk.js": "/webrtc-firebase-611463022/static/js/3.120d3005.chunk.js",
-    "static/js/3.120d3005.chunk.js.map": "/webrtc-firebase-611463022/static/js/3.120d3005.chunk.js.map",
+    "static/js/2.6f18af62.chunk.js": "/webrtc-firebase-611463022/static/js/2.6f18af62.chunk.js",
+    "static/js/2.6f18af62.chunk.js.map": "/webrtc-firebase-611463022/static/js/2.6f18af62.chunk.js.map",
+    "static/js/3.3bb60c51.chunk.js": "/webrtc-firebase-611463022/static/js/3.3bb60c51.chunk.js",
+    "static/js/3.3bb60c51.chunk.js.map": "/webrtc-firebase-611463022/static/js/3.3bb60c51.chunk.js.map",
     "index.html": "/webrtc-firebase-611463022/index.html",
     "static/css/2.7afb6aac.chunk.css.map": "/webrtc-firebase-611463022/static/css/2.7afb6aac.chunk.css.map",
-    "static/css/main.6dea0f05.chunk.css.map": "/webrtc-firebase-611463022/static/css/main.6dea0f05.chunk.css.map",
-    "static/js/2.09e017aa.chunk.js.LICENSE.txt": "/webrtc-firebase-611463022/static/js/2.09e017aa.chunk.js.LICENSE.txt"
+    "static/css/main.5b5663b6.chunk.css.map": "/webrtc-firebase-611463022/static/css/main.5b5663b6.chunk.css.map",
+    "static/js/2.6f18af62.chunk.js.LICENSE.txt": "/webrtc-firebase-611463022/static/js/2.6f18af62.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.f10dacf8.js",
+    "static/js/runtime-main.69ce5c9a.js",
     "static/css/2.7afb6aac.chunk.css",
-    "static/js/2.09e017aa.chunk.js",
-    "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.35d42a1d.chunk.js"
+    "static/js/2.6f18af62.chunk.js",
+    "static/css/main.5b5663b6.chunk.css",
+    "static/js/main.c56c2617.chunk.js"
   ]
 }
