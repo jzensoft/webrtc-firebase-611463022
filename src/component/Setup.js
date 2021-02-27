@@ -6,6 +6,8 @@ import InputFile from "./InputFile";
 import RenderFile from "./RenderFile";
 import { Row, Col, ButtonGroup, Button, Badge, FormInput } from "shards-react";
 import { Modal } from "react-bootstrap";
+import useStateRef from "react-usestateref";
+import "../App.css";
 
 var peer = new Peer(localStorage.getItem("id"));
 var conn = peer.connect();
@@ -15,15 +17,14 @@ const Setup = ({ logout }) => {
   const [height, setHeight] = useState(window.innerHeight);
 
   const [friendID, setFriendID] = useState("");
-  const [start, setStart] = useState(false);
-  const [mystream, setMytream] = useState();
+  const [mystream, setMystream, mystreamRef] = useStateRef();
   const [txtMessage, setTxtMessage] = useState();
   const [messages, setMessages] = useState([]);
   const [btnChat, setBtnChat] = useState(true);
   const [files, setFiles] = useState();
   const [fileList, setFileList] = useState([]);
   const [mic, setMic] = useState(false);
-  const [audio, setAudio] = useState(false);
+  const [video, setVideo] = useState(false);
   const [modal, setModal] = useState(true);
 
   const myVideo = useRef();
@@ -53,7 +54,7 @@ const Setup = ({ logout }) => {
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
       .then((stream) => {
-        setMytream(stream);
+        setMystream(stream);
         if (myVideo.current) {
           myVideo.current.srcObject = stream;
         }
@@ -64,7 +65,6 @@ const Setup = ({ logout }) => {
 
       // Receive Data
       connection.on("data", (data) => {
-        setStart(true);
         handleClose();
 
         if (data.type === "id") {
@@ -78,17 +78,10 @@ const Setup = ({ logout }) => {
 
     // Answer
     peer.on("call", (call) => {
-      navigator.mediaDevices
-        .getUserMedia({ video: true, audio: true })
-        .then((stream) => {
-          call.answer(stream);
-          call.on("stream", (stream) => {
-            friendVideo.current.srcObject = stream;
-          });
-        })
-        .catch((err) => {
-          console.error("Failed to get local stream", err);
-        });
+      call.answer(mystreamRef.current);
+      call.on("stream", (stream) => {
+        friendVideo.current.srcObject = stream;
+      });
     });
   }, []);
 
@@ -97,7 +90,6 @@ const Setup = ({ logout }) => {
       conn = peer.connect(friendID);
       conn.on("open", () => {
         conn.send({ type: "id", id: localStorage.getItem("id") });
-        setStart(true);
         handleClose();
       });
 
@@ -108,7 +100,7 @@ const Setup = ({ logout }) => {
       });
 
       // Call
-      let call = peer.call(friendID, mystream);
+      let call = peer.call(friendID, mystreamRef.current);
       call.on("stream", (stream) => {
         friendVideo.current.srcObject = stream;
       });
@@ -175,10 +167,14 @@ const Setup = ({ logout }) => {
 
   const toggleMic = () => {
     setMic(mic ? false : true);
+    const state = !mystreamRef.current.getAudioTracks()[0].enabled;
+    mystreamRef.current.getAudioTracks()[0].enabled = state;
   };
 
-  const toggleAudio = () => {
-    setAudio(audio ? false : true);
+  const toggleVideo = () => {
+    setVideo(video ? false : true);
+    const state = !mystreamRef.current.getVideoTracks()[0].enabled;
+    mystreamRef.current.getVideoTracks()[0].enabled = state;
   };
 
   const handleClose = () => setModal(false);
@@ -187,9 +183,9 @@ const Setup = ({ logout }) => {
     <div className="container-fluid">
       <Row>
         <Col style={{ padding: "0" }}>
+          {/* Friend Video */}
           <video
             playsInline
-            muted={audio ? true : false}
             ref={friendVideo}
             autoPlay
             style={{
@@ -199,6 +195,7 @@ const Setup = ({ logout }) => {
             }}
           />
 
+          {/* My Video */}
           <video
             playsInline
             muted
@@ -218,28 +215,79 @@ const Setup = ({ logout }) => {
           />
 
           <div
-            style={{ padding: "0" }}
+            style={{ padding: "0", marginTop: "-10px" }}
             className="d-flex justify-content-center"
           >
-            <div className="mr-5">
-              <h3 className="mb-0">
-                <i
-                  style={{ cursor: "pointer", color: "green" }}
-                  className={mic ? "bi bi-mic-mute-fill" : "bi bi-mic"}
-                  onClick={() => toggleMic()}
-                ></i>
-              </h3>
+            <div className="mr-3">
+              <Button
+                data-bs-toggle="tooltip"
+                data-bs-placement="left"
+                title={mic ? "turn on mic" : "turn off mic"}
+                style={{
+                  padding: "6px 0px",
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "30px",
+                  backgroundColor: "#FFF",
+                  borderColor: "#cccccc",
+                }}
+                onClick={() => toggleMic()}
+              >
+                <h4 className="mb-0">
+                  <i
+                    style={{ cursor: "pointer" }}
+                    className={mic ? "bi bi-mic-mute" : "bi bi-mic"}
+                  ></i>
+                </h4>
+              </Button>
             </div>
-            <div>
-              <h3 className="mb-0 ml-2">
-                <i
-                  style={{ cursor: "pointer", color: "green" }}
-                  className={
-                    audio ? "bi bi-volume-mute-fill" : "bi bi-volume-up-fill"
-                  }
-                  onClick={() => toggleAudio()}
-                ></i>
-              </h3>
+            <div className="mr-3">
+              <Button
+                data-bs-toggle="tooltip"
+                data-bs-placement="left"
+                title="Hang up"
+                style={{
+                  padding: "6px 0px",
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "30px",
+                  backgroundColor: "#FFF",
+                  borderColor: "#cccccc",
+                }}
+                onClick={() => window.location.reload(false)}
+              >
+                <h4 className="mb-0">
+                  <i
+                    style={{ cursor: "pointer", color: "red" }}
+                    className="bi bi-telephone-x"
+                  ></i>
+                </h4>
+              </Button>
+            </div>
+            <div className="mr-3">
+              <Button
+                data-bs-toggle="tooltip"
+                data-bs-placement="left"
+                title={video ? "turn on camera" : "turn off camera"}
+                style={{
+                  padding: "6px 0px",
+                  width: "60px",
+                  height: "60px",
+                  borderRadius: "30px",
+                  backgroundColor: "#FFF",
+                  borderColor: "#cccccc",
+                }}
+                onClick={() => toggleVideo()}
+              >
+                <h4 className="mb-0">
+                  <i
+                    style={{ cursor: "pointer" }}
+                    className={
+                      video ? "bi bi-camera-video-off" : "bi bi-camera-video"
+                    }
+                  ></i>
+                </h4>
+              </Button>
             </div>
           </div>
         </Col>

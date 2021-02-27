@@ -10166,6 +10166,11 @@ react-transition-group@^4.4.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
+react-usestateref@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-usestateref/-/react-usestateref-1.0.4.tgz#7b76bed65d327bb697ba980d97c0466625598453"
+  integrity sha512-KdO6EnbmsznZQXxbeEE+gGcBD+/k/mIITKP8DBRkmmZTVzlo2O0KDrcZBRyPf46Niiqt4J/M9Z1B9uldd25P3A==
+
 react@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"
